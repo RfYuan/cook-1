@@ -22,7 +22,10 @@ export const db = new MySubClassedDexie()
 
 export async function initDb() {
   const { default: recipeData } = await import('../data/recipe.json')
+  console.log("saving data");
 
+  console.log(recipeData);
+  
   return db.recipes.bulkPut(
     (recipeData as RecipeItem[]).map((item, i) => ({
       id: i,

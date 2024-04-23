@@ -14,7 +14,7 @@ useHead({
 })
 
 const indexedDB = useIndexedDB()
-
+console.log("Initted the db ----------------")
 onMounted(() => {
   installPrompt()
   indexedDB.init()

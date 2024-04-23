@@ -13,6 +13,7 @@ function run() {
   const csvData = fs.readFileSync(recipeCsvFile, 'utf-8')
   const lines = csvData.split(/\r?\n/)
 
+  console.log("start converting")
   const headers = 'name,stuff,bv,difficulty,tags,methods,tools,'
   if (lines[0].trim() !== headers) {
     consola.warn(`Headers Changed: ${lines[0]}`)
@@ -39,6 +40,7 @@ function run() {
       })
     }
   })
+  // console.log(recipeJson)
 
   fs.writeFileSync(recipeJsonFile, JSON.stringify(recipeJson))
   consola.success(`Generate file: ${recipeJsonFile}`)
